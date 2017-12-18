@@ -10,6 +10,8 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
+// 类：
+// 说明：注意服务器 IP 可能改变
 public class CSystem
 {
 	
