@@ -10,8 +10,6 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
-// 类：
-// 说明：注意服务器 IP 可能改变
 public class CSystem
 {
 	
@@ -25,7 +23,7 @@ public class CSystem
 	// return: receive: 接收到的数据
 	public static String dataExchange(String send)
 	{
-		String ip = "172.25.112.202";	// 服务器IP
+		String ip = "192.168.191.4";	// 服务器IP
 		int port = 8080; 				// 服务器目的端口号
 		String receive = "{\r\n" + 
 						 "	\"state\": \"连接失败，请求超时！\"\r\n" +

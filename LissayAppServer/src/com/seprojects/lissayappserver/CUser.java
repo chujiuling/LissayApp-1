@@ -20,21 +20,15 @@ public class CUser
 	public CUser()
 	{
 	}
-
+	
 	// 函数：登录
 	// 参数：_phoneNum: 手机号码 ,_passwd: 密码, _phoneModel: 手机型号
 	// return: null(登录成功) String(登录失败信息)
 	public String login(String _phoneNum, String _passwd, String _phoneModel)
 	{
 		// 生成发送数据
-		JsonObject json = new JsonObject();
-		json.addProperty("op", "10001");
-		JsonObject info = new JsonObject();
-		info.addProperty("phoneNum", _phoneNum);
-		info.addProperty("passwd", _passwd);
-		info.addProperty("phoneModel", _phoneModel);
-		json.add("info", info);
-
+		JsonObject json = setData("10001", null, _phoneNum, _passwd, null, _phoneModel);
+		
 		// 数据发送
 		JsonParser parser = new JsonParser();
 		json = (JsonObject) parser.parse(CSystem.dataExchange(json.toString()));
@@ -79,6 +73,25 @@ public class CUser
 	public String setPhoto(String _photo)
 	{
 		return "111";
+	}
+	
+	// 函数：生成 Json 发送数据
+	// 参数：_op: 请求号, _phoneNum: 手机号码 ,_passwd: 密码, _photo: 图片链接, _phoneModel: 手机型号
+	// return: JsonObject
+	private JsonObject setData(String _op, String _userID, String _phoneNum, String _passwd, String _photo, String _phoneModel)
+	{
+		// 生成发送数据
+		JsonObject json = new JsonObject();
+		json.addProperty("op", _op);
+		JsonObject info = new JsonObject();
+		info.addProperty("userID", _userID);
+		info.addProperty("phoneNum", _phoneNum);
+		info.addProperty("passwd", _passwd);
+		info.addProperty("photo", _photo);
+		info.addProperty("phoneModel", _phoneModel);
+		json.add("info", info);
+		
+		return json;
 	}
 	
 	// 函数：向对象属性赋值
