@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 // 类：用户
-// 说明：用于用户操作是使用
 public class CUser
 {
 	private String userID; 		// 用户ID
@@ -44,7 +43,7 @@ public class CUser
 		}
 	}
 
-	// 函数：登录
+	// 函数：注册
 	// 参数：_phoneNum: 手机号码 ,_passwd: 密码, _photo: 图片链接, _phoneModel: 手机型号
 	// return: null(注册成功) String(注册失败信息)
 	public String registered(String _phoneNum, String _passwd, String _photo, String _phoneModel)

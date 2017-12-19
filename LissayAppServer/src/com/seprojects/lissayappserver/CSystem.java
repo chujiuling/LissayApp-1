@@ -10,6 +10,8 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
+// 类：系统操作
+// 备注：下方的json数据输出记得删除
 public class CSystem
 {
 	
@@ -49,7 +51,7 @@ public class CSystem
             String temp = null;                                           			// 临时变量
             while ((temp = bufferedReader.readLine()) != null)            			// 到这边即为接受到的消息
             {
-            	System.out.println(temp);
+            	System.out.println(temp);//记得删除
             	receive += temp;
             }
 
