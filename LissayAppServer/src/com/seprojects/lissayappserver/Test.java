@@ -11,7 +11,8 @@ public class Test
 		// TODO 自动生成的方法存根
 		// 要更改的信息是下面
 		CUser c = new CUser();	// 按需创建
-		String str = c.login("12345678901", "123ASD", "123564");
+		String str = c.
+("12345678902", "123ASD@02", "123564");
 		if (str == null)
 		{
 			System.out.println("success");
