@@ -25,6 +25,8 @@
         <activity android:name=".FirstForget" />
         <activity android:name=".FirstRegister" />
         <activity android:name=".UserSetting" />
+        <activity android:name=".AboutLissay" />
+        <activity android:name=".LissayUpdate"></activity>
     </application>
 
 </manifest>
