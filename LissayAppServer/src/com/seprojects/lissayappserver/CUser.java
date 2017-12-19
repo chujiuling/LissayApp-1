@@ -61,7 +61,7 @@ public class CUser
 		}
 		else
 		{
-			return json.get("state").getAsString(); // 注册失败返回状态标识(此处额外写出，是由于不可 return "")
+			return json.get("state").getAsString(); // 注册失败返回状态标识
 		}
 		
 	}
@@ -71,20 +71,20 @@ public class CUser
 	public String leave(String _userID)
 	{
 		// 生成发送数据
-				JsonObject json = setData("10002", _userID, null, null, null, null);
+		JsonObject json = setData("10002", _userID, null, null, null, null);
 				
-				// 数据发送
-				JsonParser parser = new JsonParser();
-				json = (JsonObject) parser.parse(CSystem.dataExchange(json.toString()));
+		// 数据发送
+		JsonParser parser = new JsonParser();
+		json = (JsonObject) parser.parse(CSystem.dataExchange(json.toString()));
 				
-				if (json.get("state").isJsonNull() == true)	// 登录退出成功
-				{
-					return null;
-				}
-				else
-				{
-					return json.get("state").getAsString(); // 登录退出失败返回状态标识(此处额外写出，是由于不可 return "")
-				}
+		if (json.get("state").isJsonNull() == true)	// 登录退出成功
+		{
+			return null;
+		}
+		else
+		{
+			return json.get("state").getAsString(); // 登录退出失败返回状态标识
+		}
 				
 	}
 	
@@ -93,7 +93,21 @@ public class CUser
 	// return: null(设置成功) String(设置失败信息)
 	public String setPasswd(String _passwd)
 	{
-		return "111";
+		// 生成发送数据
+		JsonObject json = setData("10004", userID, null, _passwd, null, null);
+				
+		// 数据发送
+		JsonParser parser = new JsonParser();
+		json = (JsonObject) parser.parse(CSystem.dataExchange(json.toString()));
+
+		if (json.get("state").isJsonNull() == true)	// 设置成功
+		{
+			return null;
+		}
+		else
+		{
+			return json.get("state").getAsString(); // 设置失败
+		}
 	}
 	
 	// 函数：更改头像
@@ -101,11 +115,25 @@ public class CUser
 	// return: null(更改成功) String(更改失败信息)
 	public String setPhoto(String _photo)
 	{
-		return "111";
+		// 生成发送数据
+		JsonObject json = setData("10005", userID, null, null, _photo, null);
+						
+		// 数据发送
+		JsonParser parser = new JsonParser();
+		json = (JsonObject) parser.parse(CSystem.dataExchange(json.toString()));
+
+		if (json.get("state").isJsonNull() == true)	// 更改成功
+		{
+		    return null;
+		}
+		else
+		{
+			return json.get("state").getAsString(); // 更改失败
+		}
 	}
 	
 	// 函数：生成 Json 发送数据
-	// 参数：_op: 请求号, _phoneNum: 手机号码 ,_passwd: 密码, _photo: 图片链接, _phoneModel: 手机型号
+	// 参数：_op: 请求号, _phoneNum: 手机号码, _passwd: 密码, _photo: 图片链接, _phoneModel: 手机型号
 	// return: JsonObject
 	private JsonObject setData(String _op, String _userID, String _phoneNum, String _passwd, String _photo, String _phoneModel)
 	{
