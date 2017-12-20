@@ -11,14 +11,10 @@ public class Test
 	{
 		// TODO 自动生成的方法存根
 		// 要更改的信息是下面
-<<<<<<< HEAD
-		CTweet c = new CTweet();	// 按需创建
-		String str = c.CheckTweet();
-=======
+		//CTweet c = new CTweet();	// 按需创建
+		//String str = c.CheckTweet();
 		CUser c = new CUser();	// 按需创建
-		String str = c.
-("12345678902", "123ASD@02", "123564");
->>>>>>> refs/remotes/origin/dev
+		String str = c.setPasswd("123ASD@01");
 		if (str == null)
 		{
 			System.out.println("success");

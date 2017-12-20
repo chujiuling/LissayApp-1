@@ -25,7 +25,7 @@ public class CSystem
 	// return: receive: 接收到的数据
 	public static String dataExchange(String send)
 	{
-		String ip = "192.168.191.4";	// 服务器IP
+		String ip = "192.168.191.2";	// 服务器IP
 		int port = 8080; 				// 服务器目的端口号
 		String receive = "{\r\n" + 
 						 "	\"state\": \"连接失败，请求超时！\"\r\n" +
